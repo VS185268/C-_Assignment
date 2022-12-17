@@ -1,0 +1,102 @@
+//It is a Basic Resume builder file for students by using the abstract classes,Interfaces and Delegates.
+
+
+using System;
+
+public delegate void SingleExecute();
+public delegate void ExtraEdu();
+
+public class main
+{
+    public static void Main(string[] args)
+    {
+     
+      ImplementedClass obj=new ImplementedClass();
+      SingleExecute Dobj=new SingleExecute(obj.Introduction);
+     
+      Dobj+=obj.GettingPersonalInfo;
+      Dobj+=obj.EducationInfo;
+      Dobj+=obj.SkillSet;
+      Dobj.Invoke();
+      obj.FinalCopy();
+      
+    }
+}
+public abstract class Intro
+{
+    public void Introduction(){
+        Console.WriteLine($"*****************************************");
+        Console.WriteLine("Welcome to Console Based Resume Bulider");
+        Console.WriteLine($"*****************************************");
+    }
+    public abstract void GettingPersonalInfo();
+    
+    
+}
+public interface EduInfo
+{
+    void EducationInfo();
+    
+    void SkillSet();
+    
+    void FinalCopy();
+    
+}
+public class ImplementedClass:Intro,EduInfo
+{ String name,roll_no,email,Addr,Qual,Percent,College,PLan,Tool,Intern;
+    public override void GettingPersonalInfo(){
+        Console.WriteLine("Enter Your Name:");
+        name=Console.ReadLine();
+        Console.WriteLine("Enter Your Roll No:");
+        roll_no=Console.ReadLine();
+        Console.WriteLine("Enter Email:");
+        email=Console.ReadLine();
+        Console.WriteLine("Enter Address:");
+        Addr=Console.ReadLine();
+        
+    }
+    public void EducationInfo(){
+        Console.WriteLine("Qualification:");
+        Qual=Console.ReadLine();
+        Console.WriteLine("Percentage:");
+        Percent=Console.ReadLine();
+        Console.WriteLine("College:");
+        College=Console.ReadLine();
+    }
+    public void SkillSet(){
+       Console.WriteLine("Known Programming Languages:");
+       PLan=Console.ReadLine();
+       Console.WriteLine("Tool&Modules:");
+       Tool=Console.ReadLine();
+       Console.WriteLine("Internships Done");
+       Intern=Console.ReadLine();
+       
+    
+    }
+    public void FinalCopy(){
+        
+        Console.WriteLine("*************Your Resume*************");
+        Console.WriteLine("*************************************");
+        Console.WriteLine("Personal Information");
+        Console.WriteLine("*************************************");
+        Console.WriteLine($"Name:{name}");
+        Console.WriteLine($"Roll No:{roll_no}");
+        Console.WriteLine($"Email:{email}");
+        Console.WriteLine($"Address:{Addr}");
+        Console.WriteLine("*************************************");
+        Console.WriteLine($"Educational Information");
+        Console.WriteLine("*************************************");
+        Console.WriteLine($"Qualification:{Qual}");
+        Console.WriteLine($"Percentage:{Percent}");
+        Console.WriteLine($"College:{College}");
+        Console.WriteLine("*************************************");
+        Console.WriteLine("SkillSet");
+        Console.WriteLine("*************************************");
+        Console.WriteLine($"Programming Languages:{PLan}");
+        Console.WriteLine($"Tools:{Tool}");
+        Console.WriteLine($"Intenships:{Intern}");
+        Console.WriteLine("*************************************");
+        
+    }
+}
+
